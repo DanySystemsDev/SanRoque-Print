@@ -199,8 +199,6 @@
 
     }
 
-/* PRUEBA RESPONSIVE */
-
 *{
-    outline:1px solid red;
+    outline:5px solid red !important;
 }
