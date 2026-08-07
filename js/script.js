@@ -673,7 +673,7 @@ function mostrarArchivos(){
         div.innerHTML = `
 
 
-        <span>
+          <span class="nombreArchivo">
         📎 ${archivo.name}
         </span>
 
