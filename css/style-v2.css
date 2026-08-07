@@ -1,0 +1,795 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+
+    margin: 0;
+    background: #f2f4f7;
+    color: #333;
+
+}
+
+
+
+.contenedor {
+
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 20px;
+
+}
+
+
+
+/* ENCABEZADO */
+
+header {
+
+    background: white;
+    text-align: center;
+    padding: 25px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+
+
+header h1 {
+
+    margin: 0 0 15px;
+    font-size: 28px;
+
+}
+
+
+
+header p {
+
+    margin: 0;
+    line-height: 1.5;
+    color: #555;
+
+}
+
+
+
+
+
+/* TARJETAS */
+
+section {
+
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+
+
+h2 {
+
+    margin-top: 0;
+    font-size: 19px;
+
+}
+
+
+
+
+
+
+/* BOTONES PRINCIPALES */
+
+.botones-tipo {
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+
+
+button {
+
+    border: none;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    background: #e9ecef;
+
+    transition: 0.2s;
+
+}
+
+
+
+button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+
+
+/* BOTÓN PRINCIPAL SELECCIONADO */
+
+.tipo-seleccionado {
+
+    background: #0d6efd;
+
+    color: white;
+
+}
+
+
+
+
+
+/* CONFIGURACIÓN */
+
+.opcion {
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.opcion h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.opcion button {
+
+    margin: 5px;
+
+    padding: 12px 15px;
+
+    font-size: 15px;
+
+}
+
+
+
+
+
+.opcion-seleccionada {
+
+    background: #0d6efd;
+
+    color: white;
+
+}
+
+
+
+
+
+
+/* ARCHIVOS */
+
+
+input[type="file"] {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 12px;
+
+}
+
+
+
+
+#listaArchivos {
+
+    margin-top: 15px;
+
+}
+
+
+
+.archivo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #f8f9fa;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+
+.eliminar {
+
+    background: transparent;
+
+    color: #dc3545;
+
+    font-size: 22px;
+
+    padding: 5px;
+
+}
+
+
+.eliminar:hover {
+
+    color: #b02a37;
+
+}
+
+
+
+
+
+/* COMENTARIOS */
+
+
+textarea {
+
+    width: 100%;
+
+    min-height: 110px;
+
+    resize: none;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid #ccc;
+
+    font-size: 15px;
+
+}
+
+
+
+
+
+
+/* ENVIAR */
+
+
+.enviar {
+
+    width: 100%;
+
+    background: #198754;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+
+
+/* OCULTAR */
+
+
+.oculto {
+
+    display: none;
+
+}
+
+.boton-archivo {
+
+    display: block;
+
+    width: 100%;
+
+    text-align: center;
+
+    background: #6c757d;
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.boton-archivo:active {
+
+    transform: scale(0.97);
+
+}
+
+.mensaje-error{
+
+    color:#dc3545;
+
+    font-weight:bold;
+
+    margin-top:15px;
+
+    text-align:center;
+
+}
+
+.enviar:disabled{
+
+    background: #6c757d;
+
+    cursor: not-allowed;
+
+    opacity: 0.8;
+
+}
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.modal-contenido{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    width:300px;
+
+    text-align:center;
+
+}
+
+.modal-contenido input{
+
+    width:120px;
+
+    padding:10px;
+
+    font-size:18px;
+
+    text-align:center;
+
+}
+
+.botonesModal{
+
+    margin-top:20px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+}
+
+.aviso-importante{
+    margin:20px 0;
+    padding:12px 16px;
+    border:2px solid #f0c36d;
+    border-left:6px solid #ff9800;
+    border-radius:10px;
+    background:#fff8e6;
+    color:#555;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.aviso-importante strong{
+    color:#c77700;
+}
+
+/* ==========================================
+   PROGRESO DEL ENVÍO
+========================================== */
+
+.progresoOculto{
+
+    display:none;
+
+}
+
+#progresoEnvio{
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:90%;
+    max-width:380px;
+
+    padding:25px;
+
+    background:white;
+
+    border-radius:20px;
+
+    border:1px solid #D6EAFB;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.20);
+
+    z-index:99999;
+
+}
+
+/* ==========================================
+   BLOQUEO DE PANTALLA
+========================================== */
+
+#bloqueoPantalla{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.35);
+
+    backdrop-filter:blur(3px);
+
+    z-index:9998;
+
+}
+
+
+.progresoOculto{
+
+    display:none !important;
+
+}
+
+/* ==========================================
+   TEXTO
+========================================== */
+
+#textoProgreso{
+
+    font-size:15px;
+
+    color:#1E88E5;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================================
+   BARRA
+========================================== */
+
+.barraProgreso{
+
+    width:100%;
+
+    height:12px;
+
+    background:#E3F2FD;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================
+   RELLENO
+========================================== */
+
+.barraProgresoInterna{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #42A5F5,
+        #1E88E5
+    );
+
+    border-radius:50px;
+
+    transition:width .4s ease;
+
+}
+
+/* ==========================================
+   PORCENTAJE
+========================================== */
+
+#porcentajeProgreso{
+
+    margin-top:10px;
+
+    text-align:right;
+
+    font-size:14px;
+
+    color:#1565C0;
+
+    font-weight:500;
+
+}
+
+/* ==================================
+   EFECTO BLOQUE IMPORTANTE
+================================== */
+
+.efectoImportante{
+
+    animation: avisoImportante 2s ease;
+
+}
+
+
+@keyframes avisoImportante{
+
+    0%{
+
+        transform:scale(1);
+
+        box-shadow:none;
+
+    }
+
+    20%{
+
+        transform:scale(1.08);
+
+        box-shadow:
+        0 12px 30px rgba(30,136,229,.30);
+
+    }
+
+    45%{
+
+        transform:scale(1.12);
+
+        box-shadow:
+        0 18px 45px rgba(30,136,229,.40);
+
+    }
+
+    70%{
+
+        transform:scale(1.08);
+
+        box-shadow:
+        0 12px 30px rgba(30,136,229,.30);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        box-shadow:none;
+
+    }
+
+}
+
+/* ==================================
+   BLOQUEO PANTALLA ENVIO
+================================== */
+
+
+#bloqueoEnvio{
+
+
+    display:none;
+
+
+    position:fixed;
+
+
+    top:0;
+
+    left:0;
+
+
+    width:100%;
+
+    height:100%;
+
+
+    background:rgba(0,0,0,0.45);
+
+
+    z-index:99999;
+
+
+    justify-content:center;
+
+    align-items:center;
+
+
+}
+
+
+
+.cajaCarga{
+
+
+    width:320px;
+
+
+    background:white;
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    text-align:center;
+
+
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+
+
+}
+
+
+
+#textoProgresoFlotante{
+
+
+    color:#1E88E5;
+
+
+    font-weight:bold;
+
+
+    margin-bottom:15px;
+
+
+}
+
+/* ==================================
+   MENSAJE ERROR FLOTANTE
+================================== */
+
+.mensajeFlotante{
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:white;
+
+    color:#dc3545;
+
+    padding:20px 25px;
+
+    border-radius:18px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:350px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.25);
+
+    border-left:6px solid #dc3545;
+
+    z-index:99999;
+
+    animation:
+    aparecerMensaje .3s ease;
+
+}
+
+
+
+@keyframes aparecerMensaje{
+
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translate(-50%,-40%);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translate(-50%,-50%);
+
+    }
+
+}

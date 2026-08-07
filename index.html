@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tienda San Roque - Impresiones</title>
+
+    <link rel="stylesheet" href="css/style-v2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css_mobil/css_mobilv1.css">
+</head>
+
+
+<body>
+
+
+<div class="contenedor">
+
+
+<header>
+
+    <h1>
+        Tienda San Roque
+    </h1>
+
+
+    <p>
+        ¡Hola! 👋<br>
+        Es un gusto atenderte.<br><br>
+
+        Envía tus archivos y prepara tu pedido
+        de impresión de forma rápida y sencilla.
+    </p>
+
+
+</header>
+
+<div id="bloqueImportante" class="aviso-importante">
+    <strong>📌 Importante</strong><br>
+    Antes de subir tus imágenes, verifica que ya estén recortadas y editadas como deseas imprimirlas. Nuestro sistema coloca las imágenes automáticamente y no realiza recortes ni ediciones.
+</div>
+
+
+<section>
+
+
+<h2>
+¿Qué deseas imprimir?
+</h2>
+
+
+<div class="botones-tipo">
+
+
+<button 
+id="btn-imagen"
+onclick="seleccionarTipo('imagen')">
+
+📷 Imágenes
+
+</button>
+
+
+
+<button 
+id="btn-word"
+onclick="seleccionarTipo('word')">
+
+📄 Word
+
+</button>
+
+
+
+<button 
+id="btn-pdf"
+onclick="seleccionarTipo('pdf')">
+
+📕 PDF
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section 
+id="configuracion" 
+class="oculto">
+
+
+<h2>
+Configuración
+</h2>
+
+
+<div id="opciones">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Archivos seleccionados (<span id="cantidadArchivos">0</span>)
+</h2>
+
+<p id="pesoArchivos">
+Peso total: 0 KB
+</p>
+
+<label for="archivos" class="boton-archivo">
+    📎 Seleccionar archivos
+</label>
+
+
+
+<input 
+type="file"
+id="archivos"
+multiple
+accept=".jpg,.jpeg,.png,.webp,.doc,.docx,.pdf"
+hidden>
+
+
+
+<div id="listaArchivos">
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+📝 Indicaciones o comentarios
+</h2>
+
+
+
+<textarea
+id="comentarios" 
+placeholder="Escribe alguna indicación especial...">
+</textarea>
+
+
+
+</section>
+
+
+
+
+
+
+
+<button
+id="btnEnviar"
+class="enviar"
+onclick="enviarPedido()">
+
+📤 ENVIAR PEDIDO
+
+</button>
+
+<!-- ==========================================
+     BLOQUEO DURANTE ENVÍO
+========================================== -->
+
+<div id="bloqueoPantalla">
+
+</div>
+
+<!-- ==========================================
+     PROGRESO DEL ENVÍO
+========================================== -->
+
+<div id="progresoEnvio" class="progresoOculto">
+
+    <div id="textoProgreso">
+
+        Esperando...
+
+    </div>
+
+    <div class="barraProgreso">
+
+        <div
+            id="barraProgreso"
+            class="barraProgresoInterna">
+        </div>
+
+    </div>
+
+    <div id="porcentajeProgreso">
+
+        0%
+
+    </div>
+
+</div>
+
+
+<p
+id="mensajeError"
+class="mensaje-error oculto">
+
+</p>
+
+
+
+
+</div>
+
+
+<!-- Modal tamaño personalizado -->
+<div id="modalTamano" class="modal">
+
+    <div class="modal-contenido">
+
+        <h3>Tamaño personalizado</h3>
+
+        <p>Ingrese el tamaño en centímetros</p>
+
+        <input
+            id="inputTamano"
+            type="number"
+            min="1"
+            max="30"
+            step="0.1"
+            placeholder="Ej. 7.5">
+
+        <div class="botonesModal">
+
+            <button onclick="cerrarModalTamano()">
+                Cancelar
+            </button>
+
+            <button onclick="guardarTamanoPersonalizado()">
+                Aceptar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>
