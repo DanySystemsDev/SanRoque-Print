@@ -153,6 +153,20 @@
 
     }
 
+    /* BOTÓN ELIMINAR ARCHIVO */
+
+.archivo .eliminar{
+
+    width:auto;
+    min-width:44px;
+    min-height:44px;
+
+    flex:0 0 auto;
+
+    padding:5px;
+
+}
+
     /* ==========================================
        LISTA DE ARCHIVOS
     ========================================== */
